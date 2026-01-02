@@ -1,0 +1,190 @@
+/* ===========================
+   Font Faces
+   =========================== */
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('Fonts/Playfair_Display/Playfair_Display.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'WorkSans';
+    src: url('Fonts/Work_Sans/WorkSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Quicksand';
+    src: url('Fonts/Quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ===========================
+   Main Theme Colors
+   =========================== */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --muted: #f3f3f3;
+    --accent: #b72f2f; /* warm muted red */
+    --accent-bright: #e43f3f; /* brighter red for hover */
+    --accent-2: #2aa6a6; /* soft teal */
+    --card-bg: #ffffff;
+    --page-bg: #fbfbfb;
+}
+
+/* ===========================
+   Base Layout & Typography
+   =========================== */
+body {
+    margin: 0;
+    background-color: var(--page-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-family: 'Quicksand', sans-serif;
+}
+header { width: 100%; }
+main { max-width: 1000px; margin: 24px auto; padding: 24px; }
+footer { text-align: center; padding: 16px 0; font-size: 0.95em; }
+
+/* ===========================
+   Headings & Paragraphs
+   =========================== */
+h1, h2 { margin: 0 0 12px 0; font-family: 'PlayfairDisplay', serif; }
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.6rem; }
+p { font-family: 'Quicksand', sans-serif; font-size: 1.1em; margin-bottom: 12px; margin-top: 0; }
+
+/* ===========================
+   Navbar Styles
+   =========================== */
+nav { margin: 0; padding: 0; width: 100%; }
+nav ul {
+    list-style: none;
+    padding: 0 12px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 12px;
+    height: 72px;
+}
+nav ul li { margin: 0; display: flex; align-items: center; height: 100%; font-size: 1em; }
+nav ul li a { color: var(--text-color); text-decoration: none; padding: 8px 12px; font-weight:600; transition: color 260ms ease, transform 160ms ease; }
+nav ul li a:hover { color: var(--accent); }
+
+/* Logo Styles */
+.logo { width: 140px; height: auto; display:block; object-fit:contain; }
+nav ul li:first-child a { margin-left: 10px; margin-right: 16px; padding-top: 0; padding-bottom: 0; background: none !important; color: inherit !important; }
+
+/* Right-aligned utilities (social + donate) keep as separate lis but push using margin-left:auto on the first one */
+.social-link { margin-left: auto; }
+.donate-link { margin-left: 8px; }
+
+/* ===========================
+   Hero + Buttons
+   =========================== */
+#hero { background: linear-gradient(180deg, var(--muted) 0%, transparent 60%); padding: 36px 12px; text-align: center; }
+.hero-inner { max-width: 900px; margin: 0 auto; }
+.hero-inner h1 { font-family: 'PlayfairDisplay', serif; color: var(--text-color); margin-bottom: 6px; }
+.hero-inner p { color: #444; margin-bottom: 12px; }
+.hero-ctas { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.btn { padding: 10px 16px; border-radius:6px; text-decoration:none; font-weight:600; transition: transform 160ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease; }
+.btn-primary { background: var(--text-color); color: #fff; }
+.btn-primary:hover { transform: scale(1.04); background: var(--accent); color: #fff; }
+.btn-outline { border:2px solid var(--text-color); color: var(--text-color); background:transparent; }
+.btn-outline:hover { transform: scale(1.04); border-color: var(--accent); color: var(--accent); background: transparent; }
+
+/* Donate button */
+.donate-btn { display:inline-flex; align-items:center; padding:8px 14px; background:var(--accent); color:#fff; border-radius:6px; text-decoration:none; transition: transform 160ms ease, background 200ms ease; }
+.donate-btn:hover { transform: scale(1.06); background: var(--accent-bright); color:#fff; }
+
+/* ===========================
+   Insta stacked images: same size and position, swap on hover
+   =========================== */
+.insta-wrap { display:inline-block; width:30px; height:30px; position:relative; transition: opacity 260ms ease;}
+.insta-wrap .insta-img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; transition: opacity 260ms ease; }
+.insta-wrap .insta-img.red { opacity:0; transition: opacity 260ms ease;}
+.insta-wrap:hover .insta-img.red { opacity:1; transition: opacity 260ms ease;}
+.insta-wrap:hover .insta-img.regular { opacity:0; transition: opacity 260ms ease}
+.social-link a { display:inline-flex; align-items:center; gap:8px; }
+.social-link a img, .social-link a svg { display:block; }
+.social-link a:hover { color: var(--accent); }
+
+/* ===========================
+   Gallery grid
+   =========================== */
+.gallery-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:12px; }
+.gallery-item { background:var(--muted); height:120px; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#777; font-weight:600; }
+
+/* ===========================
+   Forms and inputs
+   =========================== */
+.consult-form { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; font-family: 'Quicksand', sans-serif; }
+.consult-form label { font-weight: 600; color: var(--text-color); font-size: 1em; }
+.consult-form input, .consult-form textarea { padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; font-family: 'Quicksand', sans-serif; background-color: #fff; color: #333; transition: border 0.3s, box-shadow 0.3s; }
+.consult-form input:focus, .consult-form textarea:focus { border-color: var(--accent-2); box-shadow: 0 0 4px rgba(42, 166, 166, 0.15); outline: none; }
+
+/* Submit button (bottom) uses same donate style — align visually */
+.submit-btn { display: inline-block; background: var(--text-color); color: var(--bg-color); font-family: 'Quicksand', sans-serif; font-weight: bold; font-size: 1.1em; border: none; padding: 10px 20px; border-radius: 999px; cursor: pointer; transition: transform 160ms ease, background 200ms ease, box-shadow 200ms ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); }
+.submit-btn:hover { transform: scale(1.03); background: var(--accent-bright); color: #fff; }
+
+/* Dropdown / misc removed as not used */
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+    main { padding: 16px 4vw; }
+    .logo { width: 10vw; height: 10vw; }
+    nav ul li a { padding: 0 clamp(10px, 1vw, 24px); font-size: clamp(0.7em, 2vw, 1em); }
+    .btn { font-size: clamp(0.9em, 2.4vw, 1em); }
+    .insta-wrap { width:22px; height:22px; }
+}
+
+/* footer */
+footer { text-align:center; padding:18px 0; color:#666; }
+
+.section{
+    padding-bottom: 10vh;
+}
+
+/* ===========================
+    Slideshow Styles (integrated)
+    =========================== */
+.mySlides { display: none; position: absolute; inset: 0; }
+.slideshow-container { max-width: 1000px; width: 100%; aspect-ratio: 16/9; position: relative; margin: 0 auto; background: var(--muted); border-radius: 8px; overflow: hidden; }
+.slideshow-container img { vertical-align: middle; display: block; width: 100%; height: 100%; object-fit: contain; }
+.prev, .next {
+   cursor: pointer;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   width: auto;
+   padding: 12px;
+   color: #fff;
+   font-weight: bold;
+   font-size: 18px;
+   transition: background-color 180ms ease, transform 160ms ease;
+   border-radius: 0 3px 3px 0;
+   user-select: none;
+   background: rgba(0,0,0,0.35);
+   text-decoration: none;
+}
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.6);}
+.text { color:var(--card-bg); font-size: 15px; padding: 8px 12px; position: absolute; bottom: 8px; width: 100%; text-align: center; pointer-events: none; }
+.numbertext { font-weight: bold; color: var(--accent); font-size: 12px; padding: 8px 12px; position: absolute; top: 0; pointer-events: none; }
+.dot { cursor: pointer; height: 12px; width: 12px; margin: 0 4px; background-color: #bbb; border-radius: 50%; display: inline-block; transition: background-color 260ms ease; }
+.active, .dot:hover { background-color: #717171; }
+.fade { animation-name: fade; animation-duration: 900ms; }
+@keyframes fade { from {opacity: .4} to {opacity: 1} }
+
+@media only screen and (max-width: 700px) {
+   .prev, .next, .text { font-size: 14px; padding: 10px; }
+}
+
+/* End slideshow styles */
+
+   
