@@ -147,15 +147,44 @@ nav ul li:first-child a { margin-left: 10px; margin-right: 16px; padding-top: 0;
 footer { text-align:center; padding:18px 0; color:#666; }
 
 .section{
-    padding-bottom: 10vh;
+    padding-bottom: 5vh;
 }
 
+/* Tighten and left-align `Get Involved` and `Contact` near page bottom */
+#get-involved, #contact {
+   max-width: 500px;
+   /* margin: 0 auto 8px auto; */
+   
+   padding: 12px 4vw;
+   text-align: left;
+}
+
+#get-involved.section, #contact.section {
+   padding-bottom: 3vh; /* less vertical spacing than other sections */
+   padding-top: 1vh;
+}
+
+#get-involved p, #contact p { margin-bottom: 8px; }
+
+/* keep buttons unchanged but ensure they align with left-aligned content */
+#get-involved .donate-btn { display: inline-flex; }
+
 /* ===========================
-    Slideshow Styles (integrated)
-    =========================== */
+   Slideshow Styles (integrated)
+   =========================== */
+
+/* ===========================
+   Team / Board member styles
+   =========================== */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 18px; max-width: 900px; margin: 18px auto; }
+.member-card { text-align: center; background: var(--card-bg); padding: 14px; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.member-photo { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 10px; background: #e9e9e9; }
+.member-card h4 { margin: 6px 0 4px 0; font-family: 'PlayfairDisplay', serif; font-size: 1.05rem; }
+.member-card .role { margin: 0; color: #666; font-size: 0.95rem; }
+@media (max-width: 700px) { .member-photo { width: 96px; height: 96px; } .team-grid { gap: 12px; } }
 .mySlides { display: none; position: absolute; inset: 0; }
 .slideshow-container { max-width: 1000px; width: 100%; aspect-ratio: 16/9; position: relative; margin: 0 auto; background: var(--muted); border-radius: 8px; overflow: hidden; }
-.slideshow-container img { vertical-align: middle; display: block; width: 100%; height: 100%; object-fit: contain; }
+.slideshow-container img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .prev, .next {
    cursor: pointer;
    position: absolute;
@@ -185,6 +214,8 @@ footer { text-align:center; padding:18px 0; color:#666; }
    .prev, .next, .text { font-size: 14px; padding: 10px; }
 }
 
-/* End slideshow styles */
-
-   
+hr {
+   width: 90vw;
+   height: 2px;
+   background-color: var(--accent);
+}
