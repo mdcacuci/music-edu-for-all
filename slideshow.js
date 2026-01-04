@@ -1,6 +1,6 @@
 // slideshow.js — simple, auto-rotating slideshow with controls
 let slideIndex = 1;
-let autoAdvanceInterval = 5000; // milliseconds
+let autoAdvanceInterval = 3000; // milliseconds
 let autoTimer = null;
 
 function showSlides(n) {
