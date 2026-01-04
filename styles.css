@@ -48,6 +48,28 @@ header { width: 100%; }
 main { max-width: 1000px; margin: 24px auto; padding: 24px; }
 footer { text-align: center; padding: 16px 0; font-size: 0.95em; }
 
+/* Responsive navbar behavior: hamburger toggle on small screens */
+nav { position: relative; margin: 10vh;}
+.nav-toggle { display: none; background: transparent; border: none; font-size: 1.6rem; cursor: pointer; padding: 6px 10px; color: var(--text-color); }
+@media (max-width: 800px) {
+   nav{
+      background: #ffffff;}
+   
+   .nav-toggle { display: block; position: absolute; right: 12px; top: 5px; z-index: 60; background: var(--muted)}
+   /* Hidden by default on small screens (use !important to avoid cascade issues) */
+   /* Make the dropdown participate in normal flow so it can expand and let the page scroll
+      instead of forcing an internal scroll container. */
+   nav ul { display: none !important; position: static; background: #ffffff; padding: 20px; padding-bottom: 16px; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.18); flex-direction: column; width: calc(100% - 32px); max-width: none; z-index: 50; }
+   /* Visible when nav has `open` class */
+   /* Force the dropdown to layer above positioned media (images/slides) by
+      giving it a high z-index and ensuring it creates a stacking context. */
+   nav.open ul { display: flex !important; background: #ffffff; border: 1px solid rgba(0,0,0,0.06); position: relative; z-index: 9999; }
+   nav ul li { width: 100%; background: #ffffff}
+   nav ul li a { display: inline-block; width: 100%; padding: 10px 12px; background: #ffffff}
+   .logo { width: 50px; }
+   .donate-btn{ width: 60px; text-align: center;}
+}
+
 /* ===========================
    Headings & Paragraphs
    =========================== */
@@ -135,11 +157,16 @@ nav ul li:first-child a { margin-left: 10px; margin-right: 16px; padding-top: 0;
 
 /* Responsive tweaks */
 @media (max-width: 700px) {
-    main { padding: 16px 4vw; }
-    .logo { width: 10vw; height: 10vw; }
-    nav ul li a { padding: 0 clamp(10px, 1vw, 24px); font-size: clamp(0.7em, 2vw, 1em); }
-    .btn { font-size: clamp(0.9em, 2.4vw, 1em); }
-    .insta-wrap { width:22px; height:22px; }
+   main { padding: 16px 4vw; }
+   /* Make the logo larger on small screens for better visibility */
+   .logo { width: 140px; height: auto; }
+   /* Remove gaps between nav items on small screens and give consistent white background */
+   nav ul { gap: 0; padding: 8px 0; }
+   nav ul li { background: #ffffff; margin: 0; }
+   nav ul li + li { border-top: 1px solid rgba(0,0,0,0.06); }
+   nav ul li a { padding: 14px 16px; font-size: 1.05rem; }
+   .btn { font-size: clamp(0.9em, 2.4vw, 1em); }
+   .insta-wrap { width:22px; height:22px; }
 }
 
 /* footer */
@@ -183,6 +210,12 @@ footer { text-align:center; padding:18px 0; color:#666; }
 .member-card .role { margin: 0 0 8px 0; color: #666; font-size: 0.98rem; }
 @media (max-width: 900px) { .team-grid { grid-template-columns: 1fr; max-width: 720px; } .member-photo { width: 160px; height: 160px; } }
 @media (max-width: 700px) { .team-grid { grid-template-columns: 1fr; gap: 16px; max-width: 92%; } .member-photo { width: 120px; height: 120px; } .member-card { padding: 14px; flex-direction: row; } }
+@media (max-width: 700px) {
+   .member-card { flex-direction: column; align-items: center; text-align: center; }
+   .member-card .bio { text-align: left; width: 100%; margin-top: 12px; }
+   .member-card h4, .member-card .role { text-align: center; }
+   .member-photo { width: 140px; height: 140px; border-radius: 8px; }
+}
 .mySlides { display: none; position: absolute; inset: 0; }
 .slideshow-container { max-width: 1000px; width: 100%; aspect-ratio: 16/9; position: relative; margin: 0 auto; background: var(--muted); border-radius: 8px; overflow: hidden; }
 .slideshow-container img { display: block; width: 100%; height: 100%; object-fit: contain; }
