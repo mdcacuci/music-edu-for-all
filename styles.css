@@ -128,7 +128,7 @@ nav ul li:first-child a { margin-left: 10px; margin-right: 16px; padding-top: 0;
 .consult-form input:focus, .consult-form textarea:focus { border-color: var(--accent-2); box-shadow: 0 0 4px rgba(42, 166, 166, 0.15); outline: none; }
 
 /* Submit button (bottom) uses same donate style — align visually */
-.submit-btn { display: inline-block; background: var(--text-color); color: var(--bg-color); font-family: 'Quicksand', sans-serif; font-weight: bold; font-size: 1.1em; border: none; padding: 10px 20px; border-radius: 999px; cursor: pointer; transition: transform 160ms ease, background 200ms ease, box-shadow 200ms ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); }
+.submit-btn { display: inline-block; background: var(--text-color); color: var(--bg-color); font-family: 'Quicksand', sans-serif; font-weight: bold; font-size: 1.1em; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; transition: transform 160ms ease, background 200ms ease, box-shadow 200ms ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); }
 .submit-btn:hover { transform: scale(1.03); background: var(--accent-bright); color: #fff; }
 
 /* Dropdown / misc removed as not used */
@@ -231,3 +231,12 @@ a{
 a:hover{
    color: var(--accent-bright)
 }
+
+/* Motivational hero motto */
+.hero-motto { font-weight: 800; font-family: 'PlayfairDisplay', serif; font-size: clamp(1.6rem, 4vw, 3rem); margin: 12px 0 6px; text-align: center; line-height: 1.05; }
+.hero-motto .gradient { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-motto-sub { text-align:center; color:#555; margin-bottom:10px; }
+
+/* small accent span to use inside paragraphs */
+.fun-accent { color: var(--accent); font-weight:700; }
+.fun-accent-2 { color: var(--accent-2); font-weight:700; }
